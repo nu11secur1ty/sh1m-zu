@@ -1,3 +1,3 @@
 #!/usr/bin/bash
-msfdb init
+  msfdb init
 exit 0;
