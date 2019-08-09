@@ -37,7 +37,6 @@ If you do not want to use the program, please press Ctrl+C to exit.
 '
 
 service postgresql start
-bash metastart.sh
 
 exe='1'
 apk='2'
