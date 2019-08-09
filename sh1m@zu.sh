@@ -37,6 +37,7 @@ If you do not want to use the program, please press Ctrl+C to exit.
 '
 
 service postgresql start
+msfdb init
 #systemctl start apache2.service
 
 exe='1'
