@@ -8,8 +8,8 @@ resize -s 25 80
 while [ $i -lt 1 ]
 	do
 		clear
-ip=$(ip addr show wlan0 | awk '/inet / {print $2}' | cut -d/ -f 1)
-#ip=$(ip addr show eth0 | awk '/inet / {print $2}' | cut -d/ -f 1)
+#ip=$(ip addr show wlan0 | awk '/inet / {print $2}' | cut -d/ -f 1)
+ip=$(ip addr show eth0 | awk '/inet / {print $2}' | cut -d/ -f 1)
 
 echo -e '\e[1;32m
 
