@@ -1,5 +1,5 @@
 #!/usr/bin/bash
-# nu11secur1ty mode 2019
+# nu11secur1ty mode 2019-2022
 # DEVELOPMENT by @nu11secur1ty Veresion 4.0 ...
 # version Shimazu 4.0 code name met@rpet@r
 i="0"
